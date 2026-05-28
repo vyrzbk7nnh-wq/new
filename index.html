@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Recherche PDF</title>
 </head>
 <body>
@@ -13,30 +14,30 @@
 
 <script>
 const fichiers = [
+  "pdf/BAALI BADGE R2N (1).pdf",
   "pdf/BAALI BADGE R2N.pdf",
   "pdf/BAALI IPAD 2020.pdf",
-  "pdf/BAALI XCOVER 5.pdf",
-  "pdf/BACLET IPAD 2020.pdf",
-  "pdf/BACLET IPAD 2022.pdf",
-  "pdf/BACLET XCOVER 5.pdf",
-  "pdf/BAILLEUX IPAD 2020.pdf",
-  "pdf/BAILLEUX XCOVER 5.pdf",
-  "pdf/BAKOUO IPAD 2020.pdf",
-  "pdf/BAKOUO XCOVER 4S.pdf",
-  "pdf/BALANGER BADGE R2N.pdf",
-  "pdf/BALANGER IPAD 2020.pdf"
+  "pdf/BAALI XCOVER 5.pdf"
 ];
 
 const input = document.getElementById("search");
 const result = document.getElementById("result");
 
-input.addEventListener("input", () => {
-  const value = input.value.toLowerCase();
+input.addEventListener("input", function () {
+  let value = input.value.toLowerCase();
   result.innerHTML = "";
 
-  fichiers.forEach(fichier => {
+  fichiers.forEach(function(fichier) {
     if (fichier.toLowerCase().includes(value)) {
-      result.innerHTML += `<li><a href="${fichier}" target="_;
+      let li = document.createElement("li");
+      let link = document.createElement("a");
+
+      link.href = fichier;
+      link.target = "_blank";
+      link.textContent = fichier;
+
+      li.appendChild(link);
+      result.appendChild(li);
     }
   });
 });
@@ -44,4 +45,3 @@ input.addEventListener("input", () => {
 
 </body>
 </html>
-``
