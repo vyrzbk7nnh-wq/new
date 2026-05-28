@@ -1,10 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mon site</title>
+  <title>Recherche PDF</title>
 </head>
 <body>
-  <h1>Bonjour 👋</h1>
-  <p>Mon site fonctionne !</p>
+
+<h1>🔍 Recherche PDF</h1>
+
+<input type="text" id="search" placeholder="Tape un nom...">
+
+<ul id="result"></ul>
+
+<script>
+const fichiers = [
+  "pdf/BAALI BADGE R2N.pdf",
+  "pdf/BAALI IPAD 2020.pdf",
+  "pdf/BAALI XCOVER 5.pdf",
+  "pdf/BACLET IPAD 2020.pdf",
+  "pdf/BACLET IPAD 2022.pdf",
+  "pdf/BACLET XCOVER 5.pdf",
+  "pdf/BAILLEUX IPAD 2020.pdf",
+  "pdf/BAILLEUX XCOVER 5.pdf",
+  "pdf/BAKOUO IPAD 2020.pdf",
+  "pdf/BAKOUO XCOVER 4S.pdf",
+  "pdf/BALANGER BADGE R2N.pdf",
+  "pdf/BALANGER IPAD 2020.pdf"
+];
+
+const input = document.getElementById("search");
+const result = document.getElementById("result");
+
+input.addEventListener("input", () => {
+  const value = input.value.toLowerCase();
+  result.innerHTML = "";
+
+  fichiers.forEach(fichier => {
+    if (fichier.toLowerCase().includes(value)) {
+      result.innerHTML += `<li><a href="${fichier}" target="_;
+    }
+  });
+});
+</script>
+
 </body>
 </html>
+``
