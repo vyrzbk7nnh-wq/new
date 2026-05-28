@@ -3,10 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <title>Recherche PDF</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      background: #f5f5f5;
+    }
+
+    input {
+      width: 300px;
+      padding: 10px;
+      font-size: 16px;
+      margin: 20px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 8px;
+    }
+
+    a {
+      text-decoration: none;
+      color: blue;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: red;
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>🔍 Recherche PDF</h1>
+<h1>🔍 Recherche de PDF</h1>
 
 <input type="text" id="search" placeholder="Tape un nom...">
 
@@ -14,29 +49,46 @@
 
 <script>
 const fichiers = [
-  "pdf/BAALI BADGE R2N (1).pdf",
-  "pdf/BAALI BADGE R2N.pdf",
-  "pdf/BAALI IPAD 2020.pdf",
-  "pdf/BAALI XCOVER 5.pdf"
+  "BAALI BADGE R2N (1).pdf",
+  "BAALI BADGE R2N.pdf",
+  "BAALI IPAD 2020.pdf",
+  "BAALI XCOVER 5.pdf",
+  "BACLET IPAD 2020.pdf",
+  "BACLET IPAD 2022.pdf",
+  "BACLET XCOVER 5.pdf",
+  "BAILLEUX IPAD 2020.pdf",
+  "BAILLEUX XCOVER 5.pdf",
+  "BAKOUO IPAD 2020.pdf",
+  "BAKOUO XCOVER 4S.pdf",
+  "BALANGER BADGE R2N.pdf",
+  "BALANGER IPAD 2020.pdf",
+  "BALANGER XCOVER 5.pdf",
+  "BARBOT IPAD 2017.pdf",
+  "BARBOT XCOVER 4S.pdf",
+  "BARDEL IPAD 2020.pdf",
+  "BARDEL XCOVER 5.pdf",
+  "BARETTA IPAD 2020.pdf",
+  "BARETTA XCOVER 5.pdf"
 ];
 
 const input = document.getElementById("search");
 const result = document.getElementById("result");
 
 input.addEventListener("input", function () {
-  let value = input.value.toLowerCase();
+  let valeur = input.value.toLowerCase();
   result.innerHTML = "";
 
   fichiers.forEach(function(fichier) {
-    if (fichier.toLowerCase().includes(value)) {
+    if (fichier.toLowerCase().includes(valeur)) {
+
       let li = document.createElement("li");
-      let link = document.createElement("a");
 
-      link.href = fichier;
-      link.target = "_blank";
-      link.textContent = fichier;
+      let lien = document.createElement("a");
+      lien.href = fichier;
+      lien.target = "_blank";
+      lien.textContent = fichier;
 
-      li.appendChild(link);
+      li.appendChild(lien);
       result.appendChild(li);
     }
   });
